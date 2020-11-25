@@ -33,7 +33,14 @@
   function addItem(e) {
       // this will stop the form automatically reloading page
       e.preventDefault(); 
-      console.log('hello');
+      // below takes inputted text and put into an Object
+      const text = (this.querySelector('[name=item]')).value;
+      const item = {
+          text: text, // this places value inputted into text variable
+          done: false
+      };
+      this.reset(); // resets the form after submission
+      
   }
 
   addItems.addEventListener('submit', addItem); // submit events are better than click as it listens for more
