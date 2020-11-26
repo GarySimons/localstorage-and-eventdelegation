@@ -57,7 +57,13 @@
       }).join(''); // this is join all items into one string
   }
 
+  function toggleDone(e) {
+      if(!e.target.matches('input')) return; // skip this unless it's an input
+      console.log(e.target);
+  }
+
   addItems.addEventListener('submit', addItem); // submit events are better than click as it listens for more
+  itemsList.addEventListener('click', toggleDone); // toggles checked on and off
 
   populateList(items, itemsList); // creates list
 
