@@ -58,8 +58,12 @@
   }
 
   function toggleDone(e) {
-      if(!e.target.matches('input')) return; // skip this unless it's an input
-      console.log(e.target);
+      if (!e.target.matches('input')) return; // skip this unless it's an input
+      const el = e.target;
+      const index = el.dataset.index;
+      items[index].done = !items[index].done; // flip flip true or false
+      localStorage.setItem('items', JSON.stringify(items)); // stores in local storage so remains when page is refreshed
+      populateList(items, itemsList); // creates list
   }
 
   addItems.addEventListener('submit', addItem); // submit events are better than click as it listens for more
