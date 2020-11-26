@@ -39,8 +39,19 @@
           text: text, // this places value inputted into text variable
           done: false
       };
-      this.reset(); // resets the form after submission
-      
+
+      items.push(item);
+      this.reset(); // resets the form after submission 
+  }
+
+  function populateList(plates = [], platesList) {
+      platesList.innerHTML = plates.map((plate, i) => {
+          return `
+            <li>
+                <label for="">${plate.text}</label>
+            </li>
+          `;
+      }).join(''); // this is join all items into one string
   }
 
   addItems.addEventListener('submit', addItem); // submit events are better than click as it listens for more
